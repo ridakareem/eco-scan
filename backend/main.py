@@ -27,6 +27,10 @@ def create_app():
 
 app = create_app()
 
+@app.route("/")
+def home():
+    return "Sustainability Scanner API is running"
+
 if __name__ == "__main__":
     port = int(os.getenv("FLASK_PORT", 5000))
     app = create_app()
