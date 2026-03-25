@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sustainability Scanner</title>
+  <link rel="stylesheet" href="css/style.css"/>
+  <script src="https://unpkg.com/html5-qrcode@2.3.8/html5-qrcode.min.js"></script>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo"><span>🌿</span>EcoScan</a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Scanner</a></li>
+      <li><a href="history.html">History</a></li>
+    </ul>
+    <div class="nav-spacer"></div>
+    <span id="nav-user-label" class="nav-user-label hidden"></span>
+    <button id="nav-login-btn" class="btn btn-ghost btn-sm">Sign in</button>
+    <button id="nav-logout-btn" class="btn btn-ghost btn-sm hidden">Sign out</button>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-eyebrow">Sustainability Intelligence</div>
+  <h1 class="hero-title">Know what you <em>buy</em></h1>
+  <p class="hero-sub">Search any food or consumer product to instantly see its sustainability score, packaging impact, and greener alternatives.</p>
+
+  <div class="grade-legend" aria-label="Grade scale">
+    <span class="grade-chip" style="background:#22c55e">A 80–100</span>
+    <span class="grade-chip" style="background:#84cc16">B 60–79</span>
+    <span class="grade-chip" style="background:#eab308">C 40–59</span>
+    <span class="grade-chip" style="background:#f97316">D 20–39</span>
+    <span class="grade-chip" style="background:#ef4444">E 0–19</span>
+  </div>
+
+  <div class="search-bar">
+    <div class="search-input-wrap">
+      <span class="search-icon">🔍</span>
+      <input
+        type="text"
+        id="search-input"
+        placeholder="Search product name or enter barcode…"
+        autocomplete="off"
+        autocorrect="off"
+        spellcheck="false"
+      />
+    </div>
+    <button id="search-btn" class="btn btn-primary">Search</button>
+    <button id="scan-btn" class="btn btn-ghost">📷 Scan Barcode</button>
+  </div>
+
+  <!-- Scanner UI -->
+  <div id="scanner-section" class="scanner-section hidden">
+    <div class="scanner-tip">
+      💡 Hold barcode steady inside the white box · Good lighting helps
+    </div>
+    <div id="qr-reader"></div>
+    <div class="scanner-actions">
+      <button id="torch-btn" class="btn btn-ghost btn-sm" style="display:none;">🔦 Toggle Flash</button>
+    </div>
+  </div>
+</section>
+
+<main class="main">
+  <div id="result-section"></div>
+</main>
+
+<!-- Auth modal -->
+<div id="auth-modal" class="auth-modal-backdrop hidden">
+  <div id="auth-overlay" style="position:absolute;inset:0;"></div>
+  <div class="auth-modal" role="dialog" aria-modal="true">
+    <button id="auth-close" class="auth-close" aria-label="Close">✕</button>
+    <h2 class="auth-title">Welcome back</h2>
+    <div class="auth-tabs" role="tablist">
+      <button class="auth-tab active" data-tab="login" role="tab">Sign in</button>
+      <button class="auth-tab" data-tab="register" role="tab">Register</button>
+    </div>
+    <form id="login-form" class="auth-form" novalidate>
+      <div class="form-group">
+        <label for="login-email">Email</label>
+        <input type="email" id="login-email" name="email" placeholder="you@example.com" required/>
+      </div>
+      <div class="form-group">
+        <label for="login-password">Password</label>
+        <input type="password" id="login-password" name="password" placeholder="••••••••" required/>
+      </div>
+      <button type="submit" class="btn btn-primary form-submit">Sign in</button>
+    </form>
+    <form id="register-form" class="auth-form hidden" novalidate>
+      <div class="form-group">
+        <label for="reg-name">Name</label>
+        <input type="text" id="reg-name" name="name" placeholder="Your name"/>
+      </div>
+      <div class="form-group">
+        <label for="reg-email">Email</label>
+        <input type="email" id="reg-email" name="email" placeholder="you@example.com" required/>
+      </div>
+      <div class="form-group">
+        <label for="reg-password">Password <span style="color:var(--text-muted);font-size:.75rem;">(min 6 chars)</span></label>
+        <input type="password" id="reg-password" name="password" placeholder="••••••••" required/>
+      </div>
+      <button type="submit" class="btn btn-primary form-submit">Create account</button>
+    </form>
+  </div>
+</div>
+
+<footer>
+  <p>EcoScan · Powered by <a href="https://world.openfoodfacts.org" target="_blank" rel="noopener" style="color:var(--accent)">Open Food Facts</a> &amp; <a href="https://world.openproductsfacts.org" target="_blank" rel="noopener" style="color:var(--accent)">Open Products Facts</a></p>
+</footer>
+
+<script type="module" src="js/app.js"></script>
+</body>
+</html>

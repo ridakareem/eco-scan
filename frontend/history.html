@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Scan History · EcoScan</title>
+  <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+
+<!-- ── Nav ── -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo"><span>🌿</span>EcoScan</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Scanner</a></li>
+      <li><a href="history.html" class="active">History</a></li>
+    </ul>
+    <div class="nav-spacer"></div>
+    <span id="nav-user-label" class="nav-user-label hidden"></span>
+    <button id="nav-login-btn" class="btn btn-ghost btn-sm">Sign in</button>
+    <button id="nav-logout-btn" class="btn btn-ghost btn-sm hidden">Sign out</button>
+  </div>
+</nav>
+
+<!-- ── Page header ── -->
+<header class="page-header">
+  <h1 class="page-title">Scan History</h1>
+  <p class="page-sub">Your recently scanned and searched products.</p>
+</header>
+
+<!-- ── Main ── -->
+<main class="main">
+
+  <!-- Login prompt -->
+  <div id="history-login-prompt" class="login-prompt hidden">
+    <p>Sign in to see your scan history across sessions.</p>
+    <a href="index.html" class="btn btn-primary">Go to Scanner</a>
+  </div>
+
+  <!-- Empty state -->
+  <div id="history-empty" class="empty-state hidden">
+    <div class="empty-state-icon">📭</div>
+    <h3>No scans yet</h3>
+    <p>Search or scan a product on the main page to start building your history.</p>
+  </div>
+
+  <!-- History list -->
+  <div id="history-list"></div>
+
+</main>
+
+<footer>
+  <p>EcoScan · Powered by <a href="https://world.openfoodfacts.org" target="_blank" rel="noopener" style="color:var(--accent)">Open Food Facts</a> &amp; <a href="https://world.openproductsfacts.org" target="_blank" rel="noopener" style="color:var(--accent)">Open Products Facts</a></p>
+</footer>
+
+<script type="module" src="js/history.js"></script>
+</body>
+</html>
